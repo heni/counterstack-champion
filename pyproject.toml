@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "champion"
+version = "0.0.1"
+description = "Python agent for the CounterStack qualification arena."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Eugene Krokhalev", email = "eugene.krokhalev@gmail.com" },
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/champion"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = [
+    "error:::champion.*",
+]

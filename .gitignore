@@ -1,0 +1,26 @@
+# Real CLAUDE/AI/backlog content lives here. Out of git on purpose:
+#   1. Insights and accumulated knowledge shouldn't reset on
+#      branch-switch — `.claude/` is shared across all branches.
+#   2. Crossing off tasks shouldn't pollute feature-PR diffs with
+#      unrelated checkmarks.
+# Stub files at repo root (`CLAUDE.md`, `AI.md`, `backlog.md`)
+# point readers to the `.claude/` originals after a fresh clone.
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+.coverage.*
+htmlcov/
+
+# Editors
+.vscode/
+.idea/
+*.swp
