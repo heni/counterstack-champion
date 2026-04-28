@@ -1,6 +1,19 @@
 # bug-report-01: тестовый сервер молча FIN'ит после валидного `ready`
 
 **Дата:** 2026-04-28
+**Статус:** ✅ **RESOLVED** (2026-04-28, фикс на стороне сервера).
+
+После фикса проверили full match echo-агентом на `default`-пресете:
+6200 тиков / 12.5 с ≈ 496 Hz, 62 keepalive-ping / 62 pong, чистый
+`match_end{reason: "qualification_topout"}`, exit 0. Подробные числа —
+в `.claude/AI.md` → «Phase 1 — connect & echo».
+
+Регрессионный тест на silent-FIN-сценарий оставлен в
+`tests/test_agent.py::test_handshake_fails_on_silent_fin` —
+если сервер снова начнёт так себя вести, мы увидим это сразу.
+
+---
+
 **Сервер:** `counter-stack.rutsh.com:9017`
 **Версия протокола в `welcome`:** 5
 **SPEC, на который опираемся:** http://counter-stack.rutsh.com/spec.html (v0.5, 2026-04-25)
